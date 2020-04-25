@@ -13,7 +13,15 @@ import org.springframework.context.annotation.ComponentScan;
 public class App {
     public static void main(String[] args) {
 //        SpringApplication.run(App.class, args); //Default method
-        SpringApplicationBuilder builder = new SpringApplicationBuilder(App.class);
-        builder.bannerMode(Banner.Mode.OFF).run(args);
+
+        // Disable the Springboot logo in console
+//        SpringApplicationBuilder builder = new SpringApplicationBuilder(App.class);
+//        builder.bannerMode(Banner.Mode.OFF).run(args);
+
+        // Switch among different profiles instead of using 'application.properties'
+        SpringApplicationBuilder builder = new SpringApplicationBuilder((App.class));
+        builder.application().setAdditionalProfiles("dev");
+        builder.run(args);
+
     }
 }

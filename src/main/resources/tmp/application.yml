@@ -1,0 +1,20 @@
+#server:
+#  port: 80
+#  servlet:
+#    context-path: /
+#  tomcat:
+#    uri-encoding: utf-8
+#
+#my:
+#  users:
+#    - name: java-starter
+#      address: US
+#      favorites:
+#        - soccer
+#        - jogging
+#        - coding
+#    - name: java-starter2
+#      address: US
+#      favorites:
+#        - reading
+#        - guitar
