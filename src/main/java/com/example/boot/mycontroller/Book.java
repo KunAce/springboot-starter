@@ -1,14 +1,21 @@
 package com.example.boot.mycontroller;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 @Component
 @ConfigurationProperties(prefix = "book")
 public class Book {
     private String name;
     private String author;
+    @JsonIgnore
     private Float price;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date publicationDate;
 
     @Override
     public String toString() {
@@ -41,5 +48,13 @@ public class Book {
 
     public void setPrice(Float price) {
         this.price = price;
+    }
+
+    public Date getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(Date publicationDate) {
+        this.publicationDate = publicationDate;
     }
 }
