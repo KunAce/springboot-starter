@@ -1,15 +1,28 @@
 package com.example.boot.mycontroller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
 @Controller
+@RequestMapping("/book")
 public class BookController {
-    @GetMapping("/book")
+    @PostMapping("/")
+//    @CrossOrigin(value="http://localhost:8081", maxAge = 1800, allowedHeaders = "*") // Set up Cross-origin request in detail
+    public String addBook(String name){
+        return "receive:" + name;
+    }
+
+    @DeleteMapping("/{id}")
+//    @CrossOrigin(value = "http://localhost:8081",maxAge = 1800, allowedHeaders = "*") // Set up Cross-origin request in detail
+    public String deleteBookById(@PathVariable Long id) {
+        return String.valueOf(id);
+    }
+
+
+    // Not for current case
+    @GetMapping("/book-deprecated")
     @ResponseBody
     public String book(@ModelAttribute("b") Book book,@ModelAttribute("a") Author author) {
         return book.toString() + ">>>>" + author.toString();
