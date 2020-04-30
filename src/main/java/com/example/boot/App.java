@@ -20,7 +20,7 @@ public class App {
 
         // Switch among different profiles instead of using 'application.properties'
         SpringApplicationBuilder builder = new SpringApplicationBuilder((App.class));
-        builder.application().setAdditionalProfiles("prod");
+        builder.application().setAdditionalProfiles("dev");
         builder.run(args);
 
     }
